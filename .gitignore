@@ -37,7 +37,6 @@ env/
 *.ipynb
 
 # Project specific
-data/
 *.csv
 *.h5
 *.pkl
