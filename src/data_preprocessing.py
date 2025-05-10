@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import os
 
-def load_data(filename="aselsan_stock_data.csv"):
+def load_data(filename="thy_stock_data.csv"):
     """
     Load the stock data from CSV file
     
@@ -109,7 +109,7 @@ def prepare_sequences(df, sequence_length=60, target_column='Close', train_split
     
     return X_train, y_train, X_test, y_test, scaler
 
-def process_data(input_file="aselsan_stock_data.csv", sequence_length=60):
+def process_data(input_file="thy_stock_data.csv", sequence_length=60):
     """
     Main function to process the data
     

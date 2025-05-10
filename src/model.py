@@ -147,7 +147,7 @@ def plot_results(history, predictions, true_values):
     plt.figure(figsize=(12, 6))
     plt.plot(true_values, label='Actual Prices')
     plt.plot(predictions, label='Predicted Prices')
-    plt.title('ASELSAN Stock Price Prediction')
+    plt.title('Turkish Airlines (THY) Stock Price Prediction')
     plt.xlabel('Time')
     plt.ylabel('Price')
     plt.legend()
