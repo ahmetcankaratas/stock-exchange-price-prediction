@@ -1,0 +1,4 @@
+Model Performance Metrics for THY:
+MSE: 1.60
+RMSE: 1.26
+MAE: 0.93
