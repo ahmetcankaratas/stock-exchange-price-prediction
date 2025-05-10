@@ -37,7 +37,6 @@ env/
 *.ipynb
 
 # Project specific
-*.csv
 *.h5
 *.pkl
 model_weights/
