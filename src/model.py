@@ -5,6 +5,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 def create_model(sequence_length, n_features):
     """
@@ -116,18 +117,20 @@ def evaluate_model(model, X_test, y_test, scaler):
     
     return predictions_unscaled, true_values_unscaled
 
-def plot_results(history, predictions, true_values):
+def plot_results(history, predictions, true_values, symbol="THY"):
     """
-    Plot training history and predictions
+    Plot training history and prediction results
     
     Parameters:
     -----------
-    history : tensorflow.keras.callbacks.History
+    history : keras.callbacks.History
         Training history
     predictions : numpy.ndarray
-        Model predictions
+        Predicted values
     true_values : numpy.ndarray
         Actual values
+    symbol : str
+        Stock symbol for plot titles
     """
     # Create output directory if it doesn't exist
     os.makedirs("output", exist_ok=True)
@@ -136,23 +139,42 @@ def plot_results(history, predictions, true_values):
     plt.figure(figsize=(12, 6))
     plt.plot(history.history['loss'], label='Training Loss')
     plt.plot(history.history['val_loss'], label='Validation Loss')
-    plt.title('Model Loss During Training')
+    plt.title(f'{symbol} Stock Price Prediction - Training History')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.legend()
-    plt.savefig('output/training_history.png')
+    plt.grid(True)
+    plt.savefig(os.path.join("output", f"{symbol.lower()}_training_history.png"))
     plt.close()
     
     # Plot predictions vs actual values
     plt.figure(figsize=(12, 6))
-    plt.plot(true_values, label='Actual Prices')
-    plt.plot(predictions, label='Predicted Prices')
-    plt.title('Turkish Airlines (THY) Stock Price Prediction')
+    plt.plot(true_values, label='Actual Price')
+    plt.plot(predictions, label='Predicted Price')
+    plt.title(f'{symbol} Stock Price - Predictions vs Actual')
     plt.xlabel('Time')
     plt.ylabel('Price')
     plt.legend()
-    plt.savefig('output/predictions.png')
+    plt.grid(True)
+    plt.savefig(os.path.join("output", f"{symbol.lower()}_predictions.png"))
     plt.close()
+    
+    # Calculate and print metrics
+    mse = mean_squared_error(true_values, predictions)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(true_values, predictions)
+    
+    print("\nModel Performance Metrics:")
+    print(f"MSE: {mse:.2f}")
+    print(f"RMSE: {rmse:.2f}")
+    print(f"MAE: {mae:.2f}")
+    
+    # Save metrics to file
+    with open(os.path.join("output", f"{symbol.lower()}_metrics.txt"), "w") as f:
+        f.write(f"Model Performance Metrics for {symbol}:\n")
+        f.write(f"MSE: {mse:.2f}\n")
+        f.write(f"RMSE: {rmse:.2f}\n")
+        f.write(f"MAE: {mae:.2f}\n")
 
 if __name__ == "__main__":
     from data_preprocessing import process_data
