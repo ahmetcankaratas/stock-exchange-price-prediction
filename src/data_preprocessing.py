@@ -163,7 +163,7 @@ def prepare_sequences(df, sequence_length=60, target_column='Close', train_split
         print(f"Error preparing sequences: {e}")
         return None, None, None, None, None
 
-def process_data(input_file="thy_historical_5m.csv", sequence_length=60):
+def process_data(input_file="thy_historical_1d.csv", sequence_length=60):
     """
     Main function to process the data
     

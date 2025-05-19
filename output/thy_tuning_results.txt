@@ -1,0 +1,242 @@
+Hyperparameter Tuning Results for THY:
+
+Trial 1:
+Validation Loss: 0.0009
+Hyperparameters:
+  n_lstm_layers: 3
+  lstm_units_1: 128
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.0005584843419473162
+  lstm_units_2: 32
+  dropout_2: 0.1
+  lstm_units_3: 32
+  dropout_3: 0.1
+
+Trial 2:
+Validation Loss: 0.0005
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 64
+  dropout_1: 0.2
+  learning_rate: 0.00021914305695327043
+  lstm_units_2: 96
+  dropout_2: 0.5
+  lstm_units_3: 128
+  dropout_3: 0.5
+
+Trial 3:
+Validation Loss: 0.0007
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 64
+  dropout_1: 0.5
+  learning_rate: 0.0001642631416429703
+  lstm_units_2: 32
+  dropout_2: 0.5
+  lstm_units_3: 128
+  dropout_3: 0.30000000000000004
+
+Trial 4:
+Validation Loss: 0.0005
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 32
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.0036005031993975646
+  lstm_units_2: 96
+  dropout_2: 0.2
+  lstm_units_3: 96
+  dropout_3: 0.2
+
+Trial 5:
+Validation Loss: 0.0010
+Hyperparameters:
+  n_lstm_layers: 3
+  lstm_units_1: 96
+  dropout_1: 0.2
+  learning_rate: 0.0006050402886318095
+  lstm_units_2: 32
+  dropout_2: 0.5
+  lstm_units_3: 64
+  dropout_3: 0.1
+
+Trial 6:
+Validation Loss: 0.0006
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 96
+  dropout_1: 0.2
+  learning_rate: 0.0003886808222604436
+  lstm_units_2: 32
+  dropout_2: 0.4
+  lstm_units_3: 64
+  dropout_3: 0.30000000000000004
+
+Trial 7:
+Validation Loss: 0.0006
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 32
+  dropout_1: 0.4
+  learning_rate: 0.0001169079699056272
+  lstm_units_2: 128
+  dropout_2: 0.4
+  lstm_units_3: 96
+  dropout_3: 0.2
+
+Trial 8:
+Validation Loss: 0.0004
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 128
+  dropout_1: 0.4
+  learning_rate: 0.00014400420008165156
+  lstm_units_2: 64
+  dropout_2: 0.2
+  lstm_units_3: 128
+  dropout_3: 0.5
+
+Trial 9:
+Validation Loss: 0.0006
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 64
+  dropout_1: 0.4
+  learning_rate: 0.00028988983189825784
+  lstm_units_2: 64
+  dropout_2: 0.1
+  lstm_units_3: 32
+  dropout_3: 0.1
+
+Trial 10:
+Validation Loss: 0.0013
+Hyperparameters:
+  n_lstm_layers: 3
+  lstm_units_1: 32
+  dropout_1: 0.4
+  learning_rate: 0.000494289254485023
+  lstm_units_2: 32
+  dropout_2: 0.4
+  lstm_units_3: 32
+  dropout_3: 0.2
+
+Trial 11:
+Validation Loss: 0.0013
+Hyperparameters:
+  n_lstm_layers: 3
+  lstm_units_1: 32
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.00034511256551908735
+  lstm_units_2: 32
+  dropout_2: 0.4
+  lstm_units_3: 32
+  dropout_3: 0.5
+
+Trial 12:
+Validation Loss: 0.0008
+Hyperparameters:
+  n_lstm_layers: 3
+  lstm_units_1: 96
+  dropout_1: 0.5
+  learning_rate: 0.00019454429812683808
+  lstm_units_2: 96
+  dropout_2: 0.2
+  lstm_units_3: 128
+  dropout_3: 0.30000000000000004
+
+Trial 13:
+Validation Loss: 0.0004
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 128
+  dropout_1: 0.1
+  learning_rate: 0.006898389145724495
+  lstm_units_2: 96
+  dropout_2: 0.2
+  lstm_units_3: 128
+  dropout_3: 0.30000000000000004
+
+Trial 14:
+Validation Loss: 0.0004
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 96
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.001023524596318175
+  lstm_units_2: 128
+  dropout_2: 0.1
+  lstm_units_3: 96
+  dropout_3: 0.30000000000000004
+
+Trial 15:
+Validation Loss: 0.0003
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 96
+  dropout_1: 0.4
+  learning_rate: 0.0027179521580834405
+  lstm_units_2: 96
+  dropout_2: 0.5
+  lstm_units_3: 128
+  dropout_3: 0.5
+
+Trial 16:
+Validation Loss: 0.0007
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 32
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.00024719970552184177
+  lstm_units_2: 64
+  dropout_2: 0.4
+  lstm_units_3: 64
+  dropout_3: 0.1
+
+Trial 17:
+Validation Loss: 0.0004
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 96
+  dropout_1: 0.2
+  learning_rate: 0.00025479450055730527
+  lstm_units_2: 32
+  dropout_2: 0.5
+  lstm_units_3: 32
+  dropout_3: 0.30000000000000004
+
+Trial 18:
+Validation Loss: 0.0005
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 64
+  dropout_1: 0.4
+  learning_rate: 0.002064254097749367
+  lstm_units_2: 64
+  dropout_2: 0.30000000000000004
+  lstm_units_3: 64
+  dropout_3: 0.5
+
+Trial 19:
+Validation Loss: 0.0004
+Hyperparameters:
+  n_lstm_layers: 1
+  lstm_units_1: 32
+  dropout_1: 0.30000000000000004
+  learning_rate: 0.004236185538505342
+  lstm_units_2: 32
+  dropout_2: 0.30000000000000004
+  lstm_units_3: 128
+  dropout_3: 0.30000000000000004
+
+Trial 20:
+Validation Loss: 0.0005
+Hyperparameters:
+  n_lstm_layers: 2
+  lstm_units_1: 96
+  dropout_1: 0.4
+  learning_rate: 0.0036573086954592286
+  lstm_units_2: 64
+  dropout_2: 0.4
+  lstm_units_3: 128
+  dropout_3: 0.4
+

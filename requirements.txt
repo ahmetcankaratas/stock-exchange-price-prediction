@@ -10,4 +10,5 @@ urllib3==2.4.0
 certifi>=2025.4.26
 charset-normalizer==3.4.2
 idna==3.10
-python-dotenv==1.0.0 
+python-dotenv==1.0.0
+python-pptx==0.6.21 
