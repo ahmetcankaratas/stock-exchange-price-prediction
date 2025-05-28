@@ -12,6 +12,37 @@ symbols = [
 'KCHOL.IS', 'KOZAA.IS', 'KOZAL.IS', 'MGROS.IS', 'ODAS.IS', 'PETKM.IS', 'PGSUS.IS', 'SAHOL.IS', 'SISE.IS', 'SOKM.IS',
 'TAVHL.IS', 'TCELL.IS', 'THYAO.IS', 'TKFEN.IS', 'TOASO.IS', 'TRKCM.IS', 'TUPRS.IS', 'VAKBN.IS', 'YKBNK.IS', 'ZOREN.IS',
 'DOHOL.IS', 'KRDMD.IS', 'SASA.IS', 'ULKER.IS', 'VESTL.IS', 'TTKOM.IS', 'TSKB.IS', 'HEKTS.IS', 'MAVI.IS', 'OYAKC.IS']
+
+def analyze_thy_with_prophet(days=90):
+    """
+    Analyze THYAO stock using Prophet model
+    """
+    # Download THYAO data
+    data = yf.download(tickers='THYAO.IS', period='4y', interval='1d', auto_adjust=True, prepost=True)
+    data.reset_index(inplace=True)
+    
+    # Prepare data for Prophet
+    df = data[['Date', 'Close']]
+    df.columns = ['ds', 'y']
+    
+    # Fit Prophet model
+    model = Prophet(daily_seasonality=True)
+    model.fit(df)
+    
+    # Generate future predictions
+    future = model.make_future_dataframe(periods=days)
+    forecast = model.predict(future)
+    
+    # Calculate performance metrics
+    last_date = df['ds'].max()
+    historical_forecast = forecast[forecast['ds'] <= last_date]
+    errors = df['y'] - historical_forecast['yhat']
+    mse = np.mean(errors**2)
+    rmse = np.sqrt(mse)
+    mape = np.mean(np.abs(errors / df['y'])) * 100
+    
+    return data, forecast, mse, rmse, mape
+
 # Title spanning the main area
 st.title("Stock Price Prediction")
 
@@ -24,7 +55,6 @@ with st.sidebar:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         forecast_clicked = st.button("Forecast")
-    
 
 # Main area: Display results when forecast button is clicked
 if forecast_clicked:
@@ -168,3 +198,65 @@ if forecast_clicked:
         # Display performance metrics at the bottom
         st.write("### Performance Metrics")
         st.dataframe(metrics_df)
+        
+        # If THYAO is selected, show additional Prophet analysis
+        if symbol == 'THYAO.IS':
+            st.write("### THYAO Prophet Analysis")
+            thy_data, thy_forecast, thy_mse, thy_rmse, thy_mape = analyze_thy_with_prophet(days)
+            
+            # Create comparison plot
+            fig3 = go.Figure()
+            
+            # Add actual data
+            fig3.add_trace(go.Scatter(
+                x=thy_data['Date'],
+                y=thy_data['Close'],
+                mode='lines',
+                name='Actual',
+                line=dict(color='blue')
+            ))
+            
+            # Add Prophet forecast
+            fig3.add_trace(go.Scatter(
+                x=thy_forecast['ds'],
+                y=thy_forecast['yhat'],
+                mode='lines',
+                name='Prophet Forecast',
+                line=dict(color='red')
+            ))
+            
+            # Add confidence interval
+            fig3.add_trace(go.Scatter(
+                x=thy_forecast['ds'],
+                y=thy_forecast['yhat_lower'],
+                mode='lines',
+                line=dict(color='rgba(0,0,0,0)'),
+                showlegend=False
+            ))
+            fig3.add_trace(go.Scatter(
+                x=thy_forecast['ds'],
+                y=thy_forecast['yhat_upper'],
+                mode='lines',
+                line=dict(color='rgba(0,0,0,0)'),
+                fill='tonexty',
+                fillcolor='rgba(173,216,230,0.2)',
+                name='Confidence Interval'
+            ))
+            
+            fig3.update_layout(
+                title="THYAO Prophet Analysis",
+                xaxis_title="Date",
+                yaxis_title="Close Price",
+                width=1600,
+                height=600
+            )
+            
+            st.plotly_chart(fig3)
+            
+            # Display Prophet metrics
+            prophet_metrics = pd.DataFrame({
+                'Metric': ['MSE', 'RMSE', 'MAPE'],
+                'Value': [thy_mse, thy_rmse, thy_mape]
+            })
+            st.write("### Prophet Performance Metrics")
+            st.dataframe(prophet_metrics)

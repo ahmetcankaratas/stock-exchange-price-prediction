@@ -1,6 +1,6 @@
-# Turkish Airlines (THY) Stock Price Prediction Project
+# Stock Price Prediction Project
 
-This data science project focuses on predicting Turkish Airlines (THY) stock prices using various machine learning techniques. The project demonstrates the complete data science pipeline from data collection to model evaluation.
+This project implements stock price prediction for BIST 50 stocks using Prophet and LSTM models, with a special focus on Turkish Airlines (THYAO).
 
 ## Project Structure
 - `data/`: Contains raw and processed data files
@@ -42,9 +42,34 @@ This will:
 - Collect THY historical data with customizable intervals
 - Save data to CSV files in the `data/` directory
 
-2. Execute the complete pipeline:
-```bash
-python src/main.py
+
+streamlit run src/xu050-stock-price-predictor-main/stock_price_forecasting.py
+
+2. Open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501)
+
+## Features
+
+- BIST 50 stock price prediction using Prophet
+- THYAO detailed analysis using both Prophet and LSTM
+- Interactive visualizations
+- Performance metrics
+- Technical indicators
+
+## Project Structure
+
+```
+stock-exchange-price-prediction/
+├── src/
+│   ├── xu050-stock-price-predictor-main/
+│   │   └── stock_price_forecasting.py
+│   ├── data_collection.py
+│   ├── data_preprocessing.py
+│   └── main.py
+├── data/
+├── output/
+├── requirements.txt
+├── README.md
+└── .env
 ```
 
 ## Data Collection

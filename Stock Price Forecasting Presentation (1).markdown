@@ -84,13 +84,27 @@ Key Features:
 - Confidence intervals for risk assessment
 
 THYAO Results:
-- High accuracy in short-term predictions
-- Effective capture of market patterns
-- Integration of technical indicators
-- Performance metrics:
-  - MSE: [Value]
-  - RMSE: [Value]
-  - MAE: [Value]"
+1. Prophet Analysis:
+   - Daily seasonality capture
+   - Confidence interval predictions
+   - Performance metrics:
+     - MSE: [Value]
+     - RMSE: [Value]
+     - MAPE: [Value]
+
+2. LSTM Analysis:
+   - High accuracy in short-term predictions
+   - Effective capture of market patterns
+   - Integration of technical indicators
+   - Performance metrics:
+     - MSE: [Value]
+     - RMSE: [Value]
+     - MAE: [Value]
+
+3. Model Comparison:
+   - Prophet excels at capturing long-term trends
+   - LSTM better at short-term price movements
+   - Combined approach provides comprehensive insights"
 
 ## Slide 8: Visualization & User Interface
 "Our Streamlit application provides:
@@ -103,12 +117,35 @@ THYAO Results:
    - Historical price trends
    - Prediction confidence intervals
    - Technical indicator overlays
+   - Model comparison views for THYAO
 
 3. Performance Metrics:
    - Real-time accuracy measures
-   - Comparative analysis tools"
+   - Comparative analysis tools
+   - Model-specific metrics display"
 
-## Slide 9: Future Enhancements
+## Slide 9: Model Comparison for THYAO
+"Detailed comparison of Prophet and LSTM approaches:
+
+1. Prophet Advantages:
+   - Better at capturing long-term trends
+   - Provides confidence intervals
+   - Handles missing data well
+   - Simpler implementation
+
+2. LSTM Advantages:
+   - Better at short-term predictions
+   - Can incorporate multiple features
+   - Learns complex patterns
+   - Adapts to market changes
+
+3. Combined Benefits:
+   - Comprehensive market view
+   - Multiple time horizon predictions
+   - Enhanced confidence in forecasts
+   - Better risk assessment"
+
+## Slide 10: Future Enhancements
 "Planned improvements:
 1. Model Enhancements:
    - Hybrid Prophet-LSTM approach
@@ -125,14 +162,14 @@ THYAO Results:
    - Risk assessment tools
    - Automated trading signals"
 
-## Slide 10: Conclusion
+## Slide 11: Conclusion
 "Our project successfully combines two powerful approaches to stock price prediction:
 - Prophet for scalable, user-friendly BIST 50 forecasting
 - LSTM for sophisticated THYAO analysis
 
 The integrated system provides both broad market insights and detailed company-specific predictions, making it valuable for different types of investors and analysts."
 
-## Slide 11: Q&A
+## Slide 12: Q&A
 "Thank you for your attention! I'm happy to answer any questions about:
 - The technical implementation
 - Model performance
