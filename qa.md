@@ -11,8 +11,9 @@
 ### Q: How do you handle missing data in your dataset?
 **A:** We handle missing data in several ways:
 - For Prophet: It automatically handles missing data points
-- For LSTM: We use forward-fill for small gaps and remove rows with significant missing values
+- For LSTM: We remove rows with NaN values using pandas' dropna() function
 - We also implement data validation checks to ensure data quality
+- Before removing NaN values, we ensure we have enough data points for our sequence length
 
 ### Q: What metrics do you use to evaluate your models?
 **A:** We use multiple metrics to ensure comprehensive evaluation:
@@ -111,6 +112,14 @@
 - Technical indicator calculation
 - Sequence preparation for LSTM
 - Data validation and quality checks
+- NaN handling strategy:
+  * We use pandas' dropna() to remove rows with missing values
+  * This approach is preferred over forward-fill because:
+    - It maintains data integrity by not introducing artificial values
+    - Prevents potential bias in our LSTM model's training
+    - Ensures more reliable predictions by using only complete data points
+  * Before removing NaN values, we verify sufficient data points remain for our sequence length
+  * We implement data quality checks to ensure the remaining data is valid and consistent
 
 ### Q: What's your approach to model tuning?
 **A:** We use several approaches:
